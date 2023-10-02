@@ -11,6 +11,9 @@ import CartProvider from "./service/CartContext";
 import Checkout from "./pages/Checkout";
 import { UserProvider } from "./service/UserContext";
 import Completed from "./pages/Completed";
+import OrderHistory from "./pages/Orderhistory";
+import ReceiptHistory from "./pages/ReceiptHistory";
+
 
 function App() {
   const [isLoggedIn] = useState(false);
@@ -29,6 +32,8 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/completed" element={<Completed />} />
+                <Route path="/orderhistory" element={<OrderHistory />} />
+                <Route path="/receipthistory/:orderId" element={<ReceiptHistory />} />
               </Routes>
             </div>
           </CartProvider>

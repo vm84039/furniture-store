@@ -8,7 +8,6 @@ import { useAuth } from "../service/AuthContextProvider"; // Import useAuth hook
 
 const Inventory = () => {
   const { isLoggedIn } = useAuth(); // Use the useAuth hook to access login function and isLoggedIn state
-  console.log("Login: ", isLoggedIn);
 
   return (
     <div className="App app-container">

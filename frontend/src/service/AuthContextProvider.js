@@ -12,9 +12,11 @@ export function useAuth() {
 export default function AuthContextProvider({ children }) { // Add default keyword here
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+
   // Simulated login function
   const login = () => {
     setIsLoggedIn(true);
+
   };
 
   // Simulated logout function

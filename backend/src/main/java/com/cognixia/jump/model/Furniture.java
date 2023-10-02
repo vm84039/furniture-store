@@ -1,9 +1,13 @@
 package com.cognixia.jump.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Furniture {
@@ -17,6 +21,13 @@ public class Furniture {
     private String category;
     private double price;
     private String imageUrl;
+    
+	@ManyToOne
+	@JoinColumn(name = "order_id")
+	@JsonBackReference // Use this annotation to prevent serialization loop
+	private Orders order;
+    
+    
 
     public Furniture() {
         // Default constructor
@@ -81,7 +92,16 @@ public class Furniture {
         this.imageUrl = imageUrl;
     }
 
-    @Override
+    
+    public Orders getOrder() {
+		return order;
+	}
+
+	public void setOrder(Orders order) {
+		this.order = order;
+	}
+
+	@Override
     public String toString() {
         return "Furniture{" +
                 "id=" + id +

@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css'; 
 import {  postCustomerData } from '../service/APIService';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+
 
 
 
@@ -17,6 +19,8 @@ const RegistrationForm = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [passwordsMatch, setPasswordsMatch] = useState(true);
+  const navigate = useNavigate(); // Get the navigate function
+
 
 
   const handleSubmit = (e) => {
@@ -39,6 +43,7 @@ const RegistrationForm = () => {
       password: password,
     };
     postCustomerData(requestBody)
+    navigate("/login");
 
   };
 

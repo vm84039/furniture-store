@@ -6,6 +6,8 @@ const GETFURNITURE_URL = 'http://localhost:8080/api/furniture/inventory';
 const POSTFURNITURE_URL = 'http://localhost:8080/api/furniture/inventory';
 const POSTCUSTOMER_URL = 'http://localhost:8080/api/furniture/register';
 const LOGINCUSTOMER_URL = 'http://localhost:8080/api/furniture/login';
+const POSTORDER_URL = 'http://localhost:8080/api/orders/order';
+const GETALLORDERSFORUSER_URL = 'http://localhost:8080/api/orders';
 
 
 
@@ -42,6 +44,24 @@ export const postCustomerData = async (formData) => {
     throw error;
   }
 };
+// Function to post furniture data (POST request)
+export const postOrder = async (formData) => {
+  try {
+    const response = await axios.post(POSTORDER_URL, formData);
+    if (response.status === 201) {
+      // Order created successfully
+      return { success: true, message: 'Order created successfully' };
+    } else {
+      // Handle other status codes if needed
+      return { success: false, message: 'Error creating order' };
+    }
+  } catch (error) {
+    // Handle API errors
+    console.error('Error creating order:', error);
+    return { success: false, message: 'Error creating order' };
+  }
+};
+
 export const loginCustomerData = async (formData) => {
   try {
     const response = await fetch(LOGINCUSTOMER_URL, {
@@ -67,10 +87,23 @@ export const loginCustomerData = async (formData) => {
       status: response.status,
     };
 
+
     return result; // Return the object with data and status
   } catch (error) {
     // Handle errors here
     console.error('Error:', error);
+    throw error;
+  }
+
+
+};
+export const getOrdersForUser = async (userId) => {
+  try {
+    const response = await axios.get(`${GETALLORDERSFORUSER_URL}/user/${userId}`);
+    return response.data;
+  } catch (error) {
+    // Handle error (e.g., show an error message or log the error)
+    console.error('Error fetching orders for user:', error);
     throw error;
   }
 };

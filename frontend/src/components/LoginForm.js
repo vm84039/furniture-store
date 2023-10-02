@@ -29,6 +29,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
     if (response.status === 201) {
       console.log(response.data);
       const userData = {
+        userId: response.data.id,
         email: response.data.email,
         firstName: response.data.firstName,
         lastName: response.data.lastName,

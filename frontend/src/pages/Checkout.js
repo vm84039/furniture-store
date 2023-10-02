@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import Footer from "../components/Footer";
-import CartNavbar from "../components/CartNavbar";
+import LoginNavbar from "../components/LoginNavbar";
 import { useAuth } from "../service/AuthContextProvider"; // Import useAuth hook
 import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 import ShoppingCart from "../components/ShoppingCart";
@@ -20,7 +20,7 @@ export const Checkout = () => {
 
   return (
     <div className="App app-container">
-      <CartNavbar />
+      <LoginNavbar />
       <div className="inventory content">
         <div class="container">
           <div class="row">

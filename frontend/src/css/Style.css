@@ -22,6 +22,19 @@
     color:whitesmoke;
     font-family: 'Croissant One', sans-serif;
 }
+.historyHeader{
+  font-size: 30px;
+  color:whitesmoke;
+  font-family: 'Croissant One', sans-serif;
+  margin-top: 50px;
+
+}
+.history{
+  color:whitesmoke;
+  font-family: 'Roboto Slab', serif;
+  font-size: 24px;
+  margin:0;
+}
 .welcome{
     color:whitesmoke;
     font-family: 'Croissant One', sans-serif;

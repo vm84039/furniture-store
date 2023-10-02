@@ -12,6 +12,7 @@ export function useUser() {
 export function UserProvider({ children }) {
   // Initialize state for user information
   const [user, setUser] = useState({
+    id: null,
     email: "",
     firstName: "",
     lastName: "",
@@ -23,6 +24,7 @@ export function UserProvider({ children }) {
   };
   const emptyUser = () => {
     setUser({
+      id: null,
       email: "",
       firstName: "",
       lastName: "",

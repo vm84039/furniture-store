@@ -12,15 +12,16 @@ const CartButton = ({ cart }) => {
   };
 
   return (
-    <button
-      className="btn btn-primary btn-lg btn-outline-info position-relative cart-button "
-      onClick={handleClick}
-    >
-      <i className="bi bi-cart cart-icon"></i> {/* Icon */}
-      {totalQuantity > 0 && (
-        <sup className="cart-badge cart-sup">{totalQuantity}</sup>
-      )}
-    </button>
+<button
+  className={`btn btn-primary btn-lg btn-outline-info position-relative cart-button ${totalQuantity === 0 ? 'disabled' : ''}`}
+  onClick={handleClick}
+  disabled={totalQuantity === 0}
+>
+  <i className="bi bi-cart cart-icon"></i> {/* Icon */}
+  {totalQuantity > 0 && (
+    <sup className="cart-badge cart-sup">{totalQuantity}</sup>
+  )}
+</button>
   );
 };
 

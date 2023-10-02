@@ -28,39 +28,32 @@ const LoginNavbar = () => {
         <a className="navbar-brand" href="/">
           <img src="/images/Mef.png" alt="MEF" className="logo"></img>
         </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div>
-          <h1 className="navHeader">Martin Esquisite Furniture!!</h1>
-        </div>
-        <div className="collapse navbar-collapse navlist" id="navbarNav">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item navitem">
-              <CartButton cart={cart} />{" "}
-              {/* Render the CartButton component and pass the cart data */}
-            </li>
-            <li className="nav-item navitem">
+        <h1 className="navHeader">Martin Esquisite Furniture!!</h1>
+        <div className="navbar-nav ml-auto">
+        <li className="nav-item navitem">
               <button
-                className="btn btn-danger logout-button"
-                onClick={() => logoutUser()}
+                className="btn btn-primary inventory-button"
+                onClick={() => navigate("/inventory")}
               >
-                <div className="logout-icon"> Logout </div>
+                <div className="logout-icon"> Back to Inventory </div>
               </button>
             </li>
-          </ul>
+          <button
+            className="btn btn-danger mx-2"
+            onClick={() => navigate("/orderhistory")}
+          >
+            <div className="logout-icon">Order<br />History</div>
+          </button>
+          <CartButton cart={cart} />
+          <button
+            className="btn btn-danger mx-2"
+            onClick={() => logoutUser()}
+          >
+            <div className="logout-icon">Logout</div>
+          </button>
         </div>
       </div>
     </nav>
   );
-};
-
+  };
 export default LoginNavbar;

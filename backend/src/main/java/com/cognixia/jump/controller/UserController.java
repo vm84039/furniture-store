@@ -8,32 +8,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cognixia.jump.model.Customer;
-import com.cognixia.jump.service.CustomerService;
+import com.cognixia.jump.model.User;
+import com.cognixia.jump.service.UserService;
 
 @RestController
 @RequestMapping("/api/furniture")
-public class CustomerController {
+public class UserController {
 
 	@Autowired
-	CustomerService service;
+	UserService service;
 
 	// http://localhost:8080/api/register
 	@PostMapping("/register")
-	public ResponseEntity<?> createUser(@RequestBody Customer customer) {
+	public ResponseEntity<?> createUser(@RequestBody User user) {
 
-		Customer save = service
-				.insertNewCustomer(new Customer(customer.getFirstName(), customer.getLastName(), customer.getEmail(),
-						customer.getPassword()));
+		User save = service
+				.insertNewUser(new User(user.getFirstName(), user.getLastName(), user.getEmail(),
+						user.getPassword()));
 
 		return ResponseEntity.status(201).body(save);
 	}
 
 	// http://localhost:8080/api/login
 	@PostMapping("/login")
-	public ResponseEntity<?> authenticate(@RequestBody Customer customer) {
+	public ResponseEntity<?> authenticate(@RequestBody User user) {
 
-		List<Customer> save = service.checkLogin(customer.getEmail(), customer.getPassword());
+		List<User> save = service.checkLogin(user.getEmail(), user.getPassword());
 		if (save.isEmpty()) {
 			return ResponseEntity.status(404).body("Not Authenticated");
 		} else {
